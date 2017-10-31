@@ -1,0 +1,15 @@
+
+### Shell environment set up for builds. ###
+
+You can now run 'MACHINE=<machine> DISTRO=<distro> bitbake <target>'
+
+Common machines are:
+    generic-arm64 (default)
+
+Common distros are:
+    flux
+
+Common targets are:
+    flux-image-essential
+
+You can also run generated qemu images with a command like 'runqemu generic-arm64'

@@ -1,0 +1,55 @@
+#!/bin/sh
+
+#
+# Build Environment Setup Script
+#
+
+# Text colors
+BLD_NOTE="\\033[1;29m"    # Bright base color
+BLD_WARNING="\\033[1;33m" # Bright yellow
+BLD_ERROR="\\033[1;31m"   # Bright red
+STD_NOTE="\\033[29m"      # Base color
+STD_WARNING="\\033[33m"   # Yellow
+STD_ERROR="\\033[31m"     # Red
+RST="\\033[0m"            # Reset colors
+
+#
+# Helper functions
+#
+note () {
+    echo -e $BLD_NOTE"NOTE""$RST: $STD_NOTE$@$RST"
+}
+
+warn () {
+    echo -e $BLD_WARNING"WARNING""$RST: $STD_WARNING$@$RST" >&2
+}
+
+error () {
+    echo -e $BLD_ERROR"ERROR""$RST: $STD_ERROR$@$RST" >&2
+    return 1
+}
+
+#
+# Normally this is called as '. ./flux-init-build-env builddir'
+#
+# This works in most shells (not dash), but not all of them pass arg1 when
+# being sourced.   To workaround the shell limitation use "set arg1" prior
+# to sourcing this script.
+#
+if [ -n "$BASH_SOURCE" ]; then
+   THIS_SCRIPT_DIR="$(dirname $BASH_SOURCE)"
+elif [ -n "$ZSH_NAME" ]; then
+   THIS_SCRIPT_DIR="$(dirname $0)"
+else
+   THIS_SCRIPT_DIR="$(pwd)"
+fi
+
+BUILDDIR=${1:-/opt/build}
+TOPDIR=$(realpath "$THIS_SCRIPT_DIR/../../")
+OEROOT=$TOPDIR/openembedded-core
+
+# Override template conf file
+echo "$TOPDIR/meta-flux/conf/templateconf" > $BUILDDIR/conf/templateconf.cfg
+
+# Set up oe environment
+. $OEROOT/oe-init-build-env $BUILDDIR
