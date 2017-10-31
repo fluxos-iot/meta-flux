@@ -4,7 +4,7 @@
 You can now run 'MACHINE=<machine> DISTRO=<distro> bitbake <target>'
 
 Common machines are:
-    generic-arm64 (default)
+    qemuarm (default)
 
 Common distros are:
     flux
