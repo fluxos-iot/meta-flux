@@ -12,6 +12,11 @@
 # variable as required.
 
 #
+# Distro Selection
+#
+DISTRO = "flux"
+
+#
 # Machine Selection
 #
 # You need to select a specific machine to target the build with. There are a selection

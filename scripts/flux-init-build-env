@@ -49,6 +49,7 @@ TOPDIR=$(realpath "$THIS_SCRIPT_DIR/../../")
 OEROOT=$TOPDIR/openembedded-core
 
 # Override template conf file
+mkdir -p $BUILDDIR/conf
 echo "$TOPDIR/meta-flux/conf/templateconf" > $BUILDDIR/conf/templateconf.cfg
 
 # Set up oe environment

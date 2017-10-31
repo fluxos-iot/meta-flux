@@ -7,9 +7,9 @@ Common machines are:
     qemuarm (default)
 
 Common distros are:
-    flux
+    flux (default)
 
 Common targets are:
     flux-image-essential
 
-You can also run generated qemu images with a command like 'runqemu generic-arm64'
+You can also run generated qemu images with a command like 'runqemu qemuarm'
