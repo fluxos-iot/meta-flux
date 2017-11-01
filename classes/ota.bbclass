@@ -7,6 +7,6 @@ IMAGE_FSTYPES += " ostree "
 OSTREE_REPO ?= "${DEPLOY_DIR_IMAGE}/ostree_repo"
 # For UPTANE operation, OSTREE_BRANCHNAME must start with "${MACHINE}-"
 OSTREE_BRANCHNAME ?= "${MACHINE}-ota"
-OSTREE_OSNAME ?= "pulsar-essential"
+OSTREE_OSNAME ?= "flux-essential"
 OSTREE_INITRAMFS_IMAGE ?= "initramfs-ostree-image"
 
