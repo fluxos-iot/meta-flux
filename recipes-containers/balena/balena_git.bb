@@ -22,6 +22,7 @@ SRCREV = "437e0d6f3c9526e2e3d6c94e60c80181a9f71f99"
 SRC_URI = "\
 	git://github.com/resin-os/balena.git;branch=17.06-resin \
         file://docker.service \
+        file://0001-balena-fix-the-crossing-building-issue-of-using-host.patch \
 	"
 
 # Apache-2.0 for docker

@@ -1,0 +1,26 @@
+From 272e123f6a756eb8467430efa3077d7b06bd878c Mon Sep 17 00:00:00 2001
+From: "fupan.li" <fupan.li@gmail.com>
+Date: Thu, 9 Nov 2017 16:28:23 +0800
+Subject: [PATCH] balena: fix the crossing building issue of using host strip
+
+Signed-off-by: fupan.li <fupan.li@gmail.com>
+---
+ build.sh | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/import/build.sh b/src/import/build.sh
+index 83ad4eb..0252352 100755
+--- a/src/import/build.sh
++++ b/src/import/build.sh
+@@ -28,7 +28,7 @@ rm -rf "$dst"
+ mkdir "$dst"
+ 
+ cp -L "$src/balena" "$dst/balena"
+-strip "$dst/balena"
++${STRIP} "$dst/balena"
+ 
+ ln -s balena "$dst/balenad"
+ ln -s balena "$dst/balena-containerd"
+-- 
+2.7.4
+
