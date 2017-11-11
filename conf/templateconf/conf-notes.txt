@@ -4,7 +4,7 @@
 You can now run 'MACHINE=<machine> DISTRO=<distro> bitbake <target>'
 
 Common machines are:
-    qemuarm (default)
+    qemux86-64 (default)
 
 Common distros are:
     flux (default)
@@ -12,4 +12,4 @@ Common distros are:
 Common targets are:
     flux-image-essential
 
-You can also run generated qemu images with a command like 'runqemu qemuarm'
+You can also run generated qemu images with a command like 'runqemu qemux86-64'
