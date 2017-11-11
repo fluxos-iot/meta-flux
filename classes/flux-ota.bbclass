@@ -1,4 +1,4 @@
-IMAGE_INSTALL_append = " ostree"
+IMAGE_INSTALL_append = " ostree os-release"
 IMAGE_CLASSES += "image_types_ostree image_types_ota"
 IMAGE_FSTYPES += "ostreepush otaimg wic"
 
