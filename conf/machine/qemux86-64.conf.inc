@@ -2,6 +2,8 @@
 PREFERRED_VERSION_linux-yocto-rt_qemux86-64 = "4.4%"
 PREFERRED_PROVIDER_virtual/kernel = "linux-yocto-rt"
 
+IMAGE_FSTYPES_remove = "wic"
+
 # U-Boot support for OTA
 PREFERRED_PROVIDER_virtual/bootloader = "u-boot-ota"
 UBOOT_MACHINE = "qemu-x86_defconfig"
