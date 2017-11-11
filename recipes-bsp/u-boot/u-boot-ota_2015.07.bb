@@ -17,6 +17,7 @@ SRC_URI = "git://git.denx.de/u-boot.git \
            file://0001-Set-up-environment-for-OSTree-integration.patch \
 	   file://0002-Replace-wraps-with-built-in-code-to-remove-dependenc.patch \
 	   file://fix-build-error-under-gcc6.patch \
+	   file://0001-compiler-.h-sync-include-linux-compiler-.h-with-Linu.patch \
 	  "
 
 S = "${WORKDIR}/git"
