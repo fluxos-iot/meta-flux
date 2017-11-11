@@ -12,7 +12,6 @@ BBLAYERS ?= " \
   ##OEROOT##/../meta-openembedded/meta-python \
   ##OEROOT##/../meta-openembedded/meta-filesystems \
   ##OEROOT##/../meta-virtualization \
-  ##OEROOT##/../meta-updater \
   ##OEROOT##/../meta-java \
   ##OEROOT##/../meta-flux \
   "
