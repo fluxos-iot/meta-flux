@@ -11,5 +11,6 @@ Common distros are:
 
 Common targets are:
     flux-image-essential
+    flux-image-container-tiny
 
 You can also run generated qemu images with a command like 'runqemu qemux86-64'

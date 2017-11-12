@@ -1,0 +1,11 @@
+IMAGE_INSTALL += "bash"
+
+LICENSE = "MIT"
+
+IMAGE_CONTAINER_NO_DUMMY = "1"
+
+IMAGE_FSTYPES = "container"
+IMAGE_LINGUAS = ""
+IMAGE_FEATURES = ""
+
+inherit core-image
