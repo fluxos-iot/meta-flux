@@ -47,6 +47,10 @@ fi
 BUILDDIR=${1:-/opt/build}
 TOPDIR=$(realpath "$THIS_SCRIPT_DIR/../../")
 OEROOT=$TOPDIR/openembedded-core
+SCRIPTSDIR=$(realpath "$TOPDIR/../scripts")
+
+# Add scripts directory to PATH
+PATH=$SCRIPTSDIR:$PATH
 
 # Override template conf file
 mkdir -p $BUILDDIR/conf
