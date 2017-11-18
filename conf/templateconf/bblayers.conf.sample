@@ -14,4 +14,5 @@ BBLAYERS ?= " \
   ##OEROOT##/../meta-virtualization \
   ##OEROOT##/../meta-java \
   ##OEROOT##/../meta-flux \
+  ##OEROOT##/../meta-xilinx \
   "

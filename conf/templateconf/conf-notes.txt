@@ -4,7 +4,8 @@
 You can now run 'MACHINE=<machine> DISTRO=<distro> bitbake <target>'
 
 Common machines are:
-    qemux86-64 (default)
+    microzed-zynq7 (default)
+    qemux86-64
 
 Common distros are:
     flux (default)
