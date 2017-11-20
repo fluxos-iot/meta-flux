@@ -13,7 +13,7 @@ OSTREE_KERNEL ??= "${KERNEL_IMAGETYPE}"
 RAMDISK_EXT ?= ".ext4.gz"
 RAMDISK_EXT_arm ?= ".ext4.gz.u-boot"
 
-export SYSTEMD_USED = "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'true', '', d)}"
+export SYSTEMD_USED = "${@oe.utils.ifelse(d.getVar('VIRTUAL-RUNTIME_init_manager', True) == 'systemd', 'true', '')}"
 
 IMAGE_CMD_ostree () {
 	if [ -z "$OSTREE_REPO" ]; then
