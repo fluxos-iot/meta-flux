@@ -1,0 +1,13 @@
+machine_name=microzed-zynq7
+kernel_image=uImage
+kernel_load_address=0x2080000
+devicetree_image=microzed-zynq7.dtb
+devicetree_load_address=0x2000000
+ramdisk_image=initramfs-ostree-image-microzed-zynq7.cpio.gz.u-boot
+ramdisk_load_address=0x3000000
+bootargs=console=ttyPS0,115200 ostree_root=/dev/mmcblk0p2 rootfstype=ext4 rw rootwait rootdelay=2 earlyprintk
+loadkernel=fatload mmc 0 ${kernel_load_address} ${kernel_image}
+loaddtb=fatload mmc 0 ${devicetree_load_address} ${devicetree_image}
+loadramdisk=fatload mmc 0 ${ramdisk_load_address} ${ramdisk_image}
+bootcmd=run loadkernel && run loaddtb && run loadramdisk && bootm ${kernel_load_address} ${ramdisk_load_address} ${devicetree_load_address}
+uenvcmd=run bootcmd

@@ -3,4 +3,4 @@
 # are located in the first vfat partition.
 
 part /boot --source bootimg-partition --ondisk mmcblk --fstype=vfat --label boot --active --align 4 --size 16
-part / --source rootfs --ondisk mmcblk --fstype=ext4 --label root --align 4
+part / --source rawcopy --sourceparams="file=flux-image-essential-microzed-zynq7.otaimg" --ondisk mmcblk --fstype=ext4 --label root --align 4

@@ -4,7 +4,7 @@ IMAGE_FSTYPES += "ostreepush otaimg wic"
 
 IMAGE_TYPEDEP_wic += "otaimg"
 
-WKS_FILE = "sdimage-ota.wks"
+WKS_FILE = "sdimage-ota-${MACHINE}.wks"
 WKS_FILE_DEPENDS = "mtools-native dosfstools-native e2fsprogs-native parted-native"
 
 # Please redefine OSTREE_REPO in order to have a persistent OSTree repo
