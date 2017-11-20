@@ -3,7 +3,7 @@ kernel_image=uImage
 kernel_load_address=0x2080000
 devicetree_image=microzed-zynq7.dtb
 devicetree_load_address=0x2000000
-ramdisk_image=initramfs-ostree-image-microzed-zynq7.cpio.gz.u-boot
+ramdisk_image=initramfs-ostree-image-microzed-zynq7.ext4.u-boot
 ramdisk_load_address=0x3000000
 bootargs=console=ttyPS0,115200 ostree_root=/dev/mmcblk0p2 rootfstype=ext4 rw rootwait rootdelay=2 earlyprintk
 loadkernel=fatload mmc 0 ${kernel_load_address} ${kernel_image}

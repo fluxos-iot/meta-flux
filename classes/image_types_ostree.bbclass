@@ -10,8 +10,7 @@ export OSTREE_REPO
 export OSTREE_BRANCHNAME
 OSTREE_KERNEL ??= "${KERNEL_IMAGETYPE}"
 
-RAMDISK_EXT ?= ".ext4.gz"
-RAMDISK_EXT_arm ?= ".ext4.gz.u-boot"
+RAMDISK_EXT ?= ".${INITRAMFS_FSTYPES}"
 
 export SYSTEMD_USED = "${@oe.utils.ifelse(d.getVar('VIRTUAL-RUNTIME_init_manager', True) == 'systemd', 'true', '')}"
 
