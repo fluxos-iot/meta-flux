@@ -74,14 +74,9 @@ done
 
 # switch to new rootfs
 log_info "Switching to new rootfs"
-
-#busybox's pivot_root
-exec pivot_root . /sbin/init
-
 mkdir -p run/initramfs
 
-#this cmd is used for linu-utils pivot_root
-#pivot_root . run/initramfs || bail_out "pivot_root failed."
+pivot_root . run/initramfs || bail_out "pivot_root failed."
 
 log_info "Launching target init"
 
