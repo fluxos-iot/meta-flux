@@ -108,16 +108,12 @@ IMAGE_CMD_otaimg () {
 		if [ $OTA_ROOTFS_SIZE -lt 0 ]; then
 			exit -1
 		fi
-		eval local COUNT=\"0\"
-		eval local MIN_COUNT=\"60\"
-		if [ $OTA_ROOTFS_SIZE -lt $MIN_COUNT ]; then
-			eval COUNT=\"$MIN_COUNT\"
-		fi
 
 		# create image
 		rm -rf ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.otaimg
 		sync
-		dd if=/dev/zero of=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.otaimg seek=$OTA_ROOTFS_SIZE count=$COUNT bs=1024
+                #create an image with the free space equal the rootfs size
+		dd if=/dev/zero of=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.otaimg seek=$OTA_ROOTFS_SIZE count=$OTA_ROOTFS_SIZE bs=1024
 		mkfs.ext4 -O ^64bit ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.otaimg -L otaroot -d ${PHYS_SYSROOT}
 		rm -rf ${PHYS_SYSROOT}
 
