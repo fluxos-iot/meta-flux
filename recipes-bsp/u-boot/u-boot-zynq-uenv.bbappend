@@ -6,6 +6,7 @@ do_compile_append () {
 	sed -i "s#loadkernel=.*#loadkernel=ext4load mmc 0:2 \${kernel_load_address} /boot/\${kernel_image}#" ${WORKDIR}/uEnv.txt
 	sed -i "/loadkernel=/aloadramdisk=ext4load mmc 0:2 \${ramdisk_load_address} /boot/\${ramdisk_image}" ${WORKDIR}/uEnv.txt
 	sed -i "/loadramdisk=/aloadenvscript=ext4load mmc 0:2 \${envscript_load_address} /boot/loader/uEnv.txt && env import -t \${envscript_load_address} 0x40000" ${WORKDIR}/uEnv.txt
+        sed -i "s#loaddtb=fatload.*#loaddtb=ext4load mmc 0:2 \${devicetree_load_address} /boot/\${bootdir}/\${devicetree_image}#" ${WORKDIR}/uEnv.txt
 	sed -i "/bootargs=/d" ${WORKDIR}/uEnv.txt
 	sed -i "/bootkernel=/d" ${WORKDIR}/uEnv.txt
 	sed -i "/uenvcmd=/d" ${WORKDIR}/uEnv.txt
