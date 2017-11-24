@@ -1,7 +1,7 @@
 [Unit]
 Description=Balena Application Container Engine
 Documentation=https://github.com/resin-os/balena
-After=network.target docker.socket
+After=network.target docker.socket var-lib-balena.mount
 Requires=docker.socket
 
 [Service]
