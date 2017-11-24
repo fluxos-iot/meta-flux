@@ -116,7 +116,7 @@ do_install() {
 
         if ${@bb.utils.contains('DISTRO_FEATURES','systemd','true','false',d)}; then
             install -d ${D}${systemd_unitdir}/system
-            install -m 644 ${S}/src/import/contrib/init/systemd/docker.* ${D}/${systemd_unitdir}/system
+            install -m 644 ${S}/src/import/contrib/init/systemd/docker.socket ${D}/${systemd_unitdir}/system
             # replaces one copied from above with one that uses the local registry for a mirror
             install -m 644 ${WORKDIR}/docker.service ${D}/${systemd_unitdir}/system
         fi
