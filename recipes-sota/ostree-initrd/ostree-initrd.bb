@@ -5,6 +5,8 @@ SRC_URI = "file://init.sh"
 
 S = "${WORKDIR}"
 
+RDEPENDS_${PN} = "initramfs-module-udev udev parted bc util-linux-lsblk"
+
 PV = "3"
 
 do_install() {
