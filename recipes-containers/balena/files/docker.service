@@ -5,7 +5,9 @@ After=network.target docker.socket var-lib-balena.mount
 Requires=docker.socket
 
 [Service]
-ExecStart=/usr/sbin/balenad -H fd:// -H unix:///var/run/balena.sock --registry-mirror=http://localhost:5000 --insecure-registry=http://localhost:5000 --raw-logs
+EnvironmentFile=-/etc/default/docker
+ExecStart=/usr/sbin/balenad -H fd:// -H unix:///var/run/balena.sock --registry-mirror=http://localhost:5000 --insecure-registry=http://localhost:5000 --raw-logs $OPTIONS
+ExecReload=/bin/kill -s HUP $MAINPID
 MountFlags=slave
 LimitNOFILE=1048576
 LimitNPROC=1048576
