@@ -1,4 +1,4 @@
-do_compile_append () {
+tweak_uenv() {
 	sed -i "s#kernel_load_address=.*#kernel_load_address=0x20C0000#" ${WORKDIR}/uEnv.txt
 	sed -i "s#devicetree_load_address=.*#devicetree_load_address=0x2000000#" ${WORKDIR}/uEnv.txt
 	sed -i "/devicetree_load_address=/aramdisk_load_address=0x3000000" ${WORKDIR}/uEnv.txt
@@ -13,3 +13,6 @@ do_compile_append () {
 	echo "uenvcmd=run loadenvscript && run loadkernel && run loaddtb && run loadramdisk && bootm \${kernel_load_address} \${ramdisk_load_address} \${devicetree_load_address}" >> ${WORKDIR}/uEnv.txt
 }
 
+do_compile_append() {
+    bb.build.exec_func("tweak_uenv", d)
+}
